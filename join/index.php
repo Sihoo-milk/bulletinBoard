@@ -36,7 +36,12 @@ if(!empty($_POST)) {
   <form action="" method="post" enctype="multipart/form-data">
     <dl>
       <dt>ニックネーム<span class="required">必須</span></dt>
-      <dd><input type="text" name="name" size="35" maxlength="255"></dd>
+      <dd>
+        <input type="text" name="name" size="35" maxlength="255" value="<?php echo htmlspecialchars($_POST['name'], ENT_QUOTES); ?>">
+        <?php if ($error['name'] == 'blank'): ?>
+        <p>* ニックネームを入力してください</p>
+        <?php endif; ?>
+      </dd>
       <dt>メールアドレス<span class="required">必須</span></dt>
       <dd><input type="text" name="email" size="35" maxlength="255"></dd>
       <dt>パスワード<span class="required">必須</span></dt>
