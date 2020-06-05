@@ -43,9 +43,22 @@ if(!empty($_POST)) {
         <?php endif; ?>
       </dd>
       <dt>メールアドレス<span class="required">必須</span></dt>
-      <dd><input type="text" name="email" size="35" maxlength="255"></dd>
+      <dd>
+        <input type="text" name="email" size="35" maxlength="255" value="<?php echo htmlspecialchars($_POST['email'], ENT_QUOTES); ?>">
+        <?php if ($error['email'] == 'blank'): ?>
+        <p>* メールアドレスを入力してください</p>
+        <?php endif; ?>
+      </dd>
       <dt>パスワード<span class="required">必須</span></dt>
-      <dd><input type="password" name="password" size="10" maxlength="20"></dd>
+      <dd>
+        <input type="password" name="password" size="10" maxlength="20" value="<?php echo htmlspecialchars($_POST['password'], ENT_QUOTES); ?>">
+        <?php if ($error['password'] == 'blank'): ?>
+        <p>* パスワードを入力してください</p>
+        <?php endif; ?>
+        <?php if ($error['password'] == 'length'): ?>
+        <p>* パスワードは4文字以上で入力してください</p>
+        <?php endif; ?>
+      </dd>
       <dt>写真など</dt>
       <dd><input type="file" name="image" size="35"></dd>
     </dl>
