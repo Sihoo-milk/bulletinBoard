@@ -1,0 +1,11 @@
+div p {
+  color: #fff;
+}
+
+div p span {
+  display: block;
+}
+
+div p img {
+  display: inline;
+}
