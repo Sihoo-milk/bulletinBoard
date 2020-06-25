@@ -8,7 +8,7 @@ const sass = require("gulp-sass");
  */
 const compileSass = () =>
   // style.scssファイルを取得
-  src("css/style.scss")
+  src("../scss/**/*.scss")
     // Sassのコンパイルを実行
     .pipe(
       // コンパイル後のCSSを展開
@@ -17,12 +17,34 @@ const compileSass = () =>
       })
     )
     // cssフォルダー以下に保存
-    .pipe(dest("css"));
+    .pipe(dest("./css/"));
 
 /**
  * Sassファイルを監視し、変更があったらSassを変換します
  */
-const watchSassFiles = () => watch("css/style.scss", compileSass);
+const watchSassFiles = () => watch("./scss/**/*.scss", compileSass);
 
 // npx gulpというコマンドを実行した時、watchSassFilesが実行されるようにします
 exports.default = watchSassFiles;
+
+
+
+// gulpプラグインの読みこみ
+var gulp = require("gulp");
+
+// browser-syncのプラグインの読み込み
+var browserSync = require("browser-sync");
+
+// タスクの設定
+gulp.task("browserSyncTask", function() {
+  browserSync({
+    server: {
+      baseDir: "../bulletinBoard/" // ルートとなるディレクトリを指定
+    }
+  });
+
+  // srcフォルダ以下のファイルを監視
+  gulp.watch("../bulletinBoard/**", function() {
+    browserSync.reload(); // ファイルに変更があれば同期しているブラウザをリロード
+  });
+});
