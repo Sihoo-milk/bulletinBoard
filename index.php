@@ -53,7 +53,10 @@ $posts = $db->query('SELECT m.name, m.picture, p.* FROM members m, posts p WHERE
 <?php foreach ($posts as $post): ?>
   <div>
     <img src="member_picture/<?php echo htmlspecialchars($post['picture'], ENT_QUOTES); ?>" width="48" height="48" alt="<?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?>">
-    <p><?php echo htmlspecialchars($post['message'], ENT_QUOTES); ?><span> (<?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?>) </span></p>
+    <p>
+      <?php echo htmlspecialchars($post['message'], ENT_QUOTES); ?><span> (<?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?>) </span>
+      [<a href="index.php?res=<?php echo htmlspecialchars($post['id'], ENT_QUOTES); ?>">Re</a>]
+    </p>
     <p><?php echo htmlspecialchars($post['created'], ENT_QUOTES); ?></p>
   </div>
 <?php endforeach; ?>
