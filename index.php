@@ -28,6 +28,9 @@ if (!empty($_POST)) {
     exit();
   }
 }
+
+// 投稿を取得する
+$posts = $db->query('SELECT m.name, m.picture, p.* FROM members m, posts p WHERE m.id=p.member_id ORDER BY p.created DESC');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -47,10 +50,12 @@ if (!empty($_POST)) {
     </div>
   </form>
 
+<?php foreach ($posts as $post): ?>
   <div>
-    <img src="member_picture/me.jpg" width="48" height="48" alt="makoto">
-    <p>こんにちは<span> (makoto) </span></p>
-    <p>2018/03/11 2:11</p>
+    <img src="member_picture/<?php echo htmlspecialchars($post['picture'], ENT_QUOTES); ?>" width="48" height="48" alt="<?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?>">
+    <p><?php echo htmlspecialchars($post['message'], ENT_QUOTES); ?><span> (<?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?>) </span></p>
+    <p><?php echo htmlspecialchars($post['created'], ENT_QUOTES); ?></p>
   </div>
+<?php endforeach; ?>
 </body>
 </html>
