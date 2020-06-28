@@ -46,5 +46,11 @@ if (!empty($_POST)) {
       <input type="submit" value="投稿する">
     </div>
   </form>
+
+  <div>
+    <img src="member_picture/me.jpg" width="48" height="48" alt="makoto">
+    <p>こんにちは<span> (makoto) </span></p>
+    <p>2018/03/11 2:11</p>
+  </div>
 </body>
 </html>
