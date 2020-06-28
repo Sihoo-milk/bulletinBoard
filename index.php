@@ -14,6 +14,20 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
   header('Location: login.php');
   exit();
 }
+
+// 投稿を記録する
+if (!empty($_POST)) {
+  if ($_POST['message'] != '') {
+    $message = $db->prepare('INSERT INTO posts SET member_id=?, message=?, created=NOW()');
+    $message->execute(array(
+      $member['id'],
+      $_POST['message']
+    ));
+
+    header('Location: index.php');
+    exit();
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
