@@ -70,7 +70,7 @@ if (isset($_REQUEST['res'])) {
       <?php echo htmlspecialchars($post['message'], ENT_QUOTES); ?><span> (<?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?>) </span>
       [<a href="index.php?res=<?php echo htmlspecialchars($post['id'], ENT_QUOTES); ?>">Re</a>]
     </p>
-    <p><?php echo htmlspecialchars($post['created'], ENT_QUOTES); ?></p>
+    <p><a href="view.php?id=<?php echo htmlspecialchars($post['id'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($post['created'], ENT_QUOTES); ?></a></p>
   </div>
 <?php endforeach; ?>
 </body>
