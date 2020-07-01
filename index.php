@@ -75,6 +75,7 @@ function makeLink($value) {
   <title>Document</title>
 </head>
 <body>
+  <div><a href="logout.php">ログアウト</a></div>
   <form action="" method="POST">
     <dl>
       <dt><?php echo h($member['name']); ?>さん、メッセージをどうぞ</dt>
