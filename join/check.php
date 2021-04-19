@@ -48,7 +48,7 @@ if (!empty($_POST)) {
       </dd>
       <dt>写真など</dt>
       <dd>
-      <img src="../member_picture/<?php echo htmlspecialchars($_SESSION['join']['image'], ENT_QUOTES); ?>" alt="">
+        <img src="../member_picture/<?php echo htmlspecialchars($_SESSION['join']['image'], ENT_QUOTES); ?>" alt="">
       </dd>
     </dl>
     <div>

@@ -89,7 +89,7 @@ function makeLink($value) {
     </div>
   </form>
 
-<?php foreach ($posts as $post): ?>
+  <?php foreach ($posts as $post): ?>
   <div>
     <img src="member_picture/<?php echo h($post['picture']); ?>" width="48" height="48" alt="<?php echo h($post['name']); ?>">
     <p>
@@ -115,19 +115,19 @@ function makeLink($value) {
       ?>
     </p>
   </div>
-<?php endforeach; ?>
+  <?php endforeach; ?>
 
-<ul>
-  <?php if ($page > 1) { ?>
-  <li><a href="index.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
-  <?php } else { ?>
-  <li>前のページへ</li>
-  <?php } ?>
-  <?php if ($page < $maxPage) { ?>
-  <li><a href="index.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
-  <?php } else { ?>
-  <li>次のページへ</li>
-  <?php } ?>
-</ul>
+  <ul>
+    <?php if ($page > 1) { ?>
+    <li><a href="index.php?page=<?php print($page - 1); ?>">前のページへ</a></li>
+    <?php } else { ?>
+    <li>前のページへ</li>
+    <?php } ?>
+    <?php if ($page < $maxPage) { ?>
+    <li><a href="index.php?page=<?php print($page + 1); ?>">次のページへ</a></li>
+    <?php } else { ?>
+    <li>次のページへ</li>
+    <?php } ?>
+  </ul>
 </body>
 </html>
